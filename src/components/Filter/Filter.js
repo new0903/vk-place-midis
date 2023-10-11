@@ -1,25 +1,27 @@
 import React from 'react'
 import {
   Group,
-  Search
+  Search,
+  Div
 } from '@vkontakte/vkui'
 import { Icon24Filter } from '@vkontakte/icons'
+import './Filter.css'
 
 
-class Filter extends React.Component{
-  constructor(props){
+class Filter extends React.Component {
+  constructor(props) {
     super(props)
   }
-  render(){
+  render() {
     return (
-<div className="Filters">
-    <Search
-      icon={
-        <Icon24Filter/>
-      }
-      iconAriaLabel="filter"
-    />
-  </div>
+      <Div >
+        <Search
+          icon={
+            <Icon24Filter />
+          }
+          iconAriaLabel="filter"
+        />
+      </Div>
     )
 
   }

@@ -11,15 +11,11 @@ class Home extends React.Component {
 	}
 	render() {
 		return (
-			<Panel className="Panel__fullScreen" id={this.props.id}>
+			<Panel className="Panel__fullScreen" id={this.props.id} >
 
 
 				<PanelHeader separator={false}>
-
-
-				</PanelHeader>
-				<Group>
-					{this.props.fetchedUser &&
+					{/* {this.props.fetchedUser &&
 						<Div>
 							<Cell
 								before={this.props.fetchedUser.photo_200 ? <Avatar src={this.props.fetchedUser.photo_200} /> : null}
@@ -28,28 +24,33 @@ class Home extends React.Component {
 								{`${this.props.fetchedUser.first_name} ${this.props.fetchedUser.last_name}`}
 							</Cell>
 						</Div>
-					}
-					<Div>
-						Control panel
+					} */}
+					Актуальное
+					Control panel
+				</PanelHeader>
+				<Group>
+					<Div className="Filters">
+						<Button size="s" align='center' mode="secondary" onClick={()=>{this.props.go("addPlace")}} data-to="addPlace">
+							Добавить место
+						</Button>
+
 
 						<Filter />
+						
 					</Div>
+
 					<Div className='store'>
 
-						<Places go={this.props.go} />
+						<Places go={this.props.go} fetchedUser={this.props.fetchedUser} Cards={this.props.places} />
 
+					</Div>
+					
+					<Div style={{display:"flex",}}>
+						
 					</Div>
 				</Group>
 
 
-
-				<Group header={<Header mode="secondary">Navigation Example</Header>}>
-					<Div>
-						<Button stretched size="l" mode="secondary" onClick={this.props.go} data-to="persik">
-							Show me the Persik, please
-						</Button>
-					</Div>
-				</Group>
 
 
 			</Panel>

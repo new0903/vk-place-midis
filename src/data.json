@@ -1,0 +1,243 @@
+[
+    {
+        "id":1,
+        "namePlace":"Место 1",
+        "adress":"улица 1",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест1",
+            "last_name":"lastТест1"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"<h1>текст текст текст текст текст текст текст текст текст текст текст текст текст</h1>"
+    },{
+        "id":2,
+        "namePlace":"Место 1",
+        "adress":"улица 2",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест2",
+            "last_name":"lastТест2"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":3,
+        "namePlace":"Место 1",
+        "adress":"улица 3",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест3",
+            "last_name":"lastТест3"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":4,
+        "namePlace":"Место 1",
+        "adress":"улица 4",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест4",
+            "last_name":"lastТест4"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":5,
+        "namePlace":"Место 1",
+        "adress":"улица 5",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест5",
+            "last_name":"lastТест5"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":6,
+        "namePlace":"Место 1",
+        "adress":"улица 6",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест6",
+            "last_name":"lastТест6"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":7,
+        "namePlace":"Место 1",
+        "adress":"улица 7",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест7",
+            "last_name":"lastТест7"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":8,
+        "namePlace":"Место 1",
+        "adress":"улица 8",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест8",
+            "last_name":"lastТест8"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":9,
+        "namePlace":"Место 1",
+        "adress":"улица 9",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест9",
+            "last_name":"lastТест9"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":10,
+        "namePlace":"Место 1",
+        "adress":"улица 10",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест10",
+            "last_name":"lastТест10"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":11,
+        "namePlace":"Место 1",
+        "adress":"улица 11",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест11",
+            "last_name":"lastТест11"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":12,
+        "namePlace":"Место 1",
+        "adress":"улица 12",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест12",
+            "last_name":"lastТест12"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":13,
+        "namePlace":"Место 1",
+        "adress":"улица 13",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест13",
+            "last_name":"lastТест13"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":14,
+        "namePlace":"Место 1",
+        "adress":"улица 14",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест14",
+            "last_name":"lastТест14"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":15,
+        "namePlace":"Место 1",
+        "adress":"улица 15",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест15",
+            "last_name":"lastТест15"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":16,
+        "namePlace":"Место 1",
+        "adress":"улица 16",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест16",
+            "last_name":"lastТест16"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":17,
+        "namePlace":"Место 1",
+        "adress":"улица 17",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест17",
+            "last_name":"lastТест17"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":18,
+        "namePlace":"Место 1",
+        "adress":"улица 18",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест18",
+            "last_name":"lastТест18"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":19,
+        "namePlace":"Место 1",
+        "adress":"улица 19",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест19",
+            "last_name":"lastТест19"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    },{
+        "id":20,
+        "namePlace":"Место 1",
+        "adress":"улица 20",
+        "userData":{
+            "id":1,
+            "photo_200":"photo",
+            "first_name":"firstТест20",
+            "last_name":"lastТест20"
+        },
+        "dateCreate":"05.20.2023",
+        "description":"текст текст текст текст текст текст текст текст текст текст текст текст текст"
+    }
+]

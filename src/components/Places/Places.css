@@ -1,185 +1,106 @@
 .Places {
-    width: 100%;
-    height: max-content;
-    margin: 16px 0;
-  }
-  
-  .Places_header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .Places_header_avatar {
-    display: inline-block;
-    margin-right: 5px;
-    border-radius: 100%;
-  }
-  
-  .Places_header_avatar__unload {
-    opacity: 0;
-  }
-  
-  .Places_grid {
-    display: grid;
-    backface-visibility: hidden;
-    will-change: transform;
-    
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 0 12px 12px 12px;
-  }
-  
-  .Places_spinner {
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  width: 100%;
+  height: 100%;
+  margin: 16px;
+}
 
-  .PlacesCard {
-    width: 100%;
-    max-width: var(--max-product-card-width);
-    cursor: pointer;
-    border: 1px solid var(--vkui--color_field_border_alpha);
-    border-radius: 9px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  .PlacesCard_bottom {
-    padding: 10px 12px 12px;
-    letter-spacing: 0.2px;
-    display: flex;
-    flex: 1;
-    gap: 14px;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .PlacesCard_info {
-    display: flex;
-    gap: 4px;
-    flex-direction: column;
-  }
-  
-  .PlacesCard_title {
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
-    color: var(--vkui-light-text-text-primary);
-  }
-  
-  .PlacesCard_price {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    color: var(--vkui--color_text_primary);
-  }
-  
-  .PlacesCard_preview {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 8px;
-    display: flex;
-    overflow: hidden;
-    background-color: var(--skeleton-background-color);
-  }
-  
-  .PlacesCard_preview_picture {
-    max-width: 100%;
-    max-height: 100%;
-    width: var(--max-product-card-width);
-  }
-  
-  .PlacesCard_preview_picture_photo {
-    height: 100%;
-    width: 100%;
-    border-radius: 8px;
-    user-select: none;
-  }
-  
-  .PlacesCard_preview_picture_photo__unload {
-    opacity: 0;
-    width: var(--max-product-card-width);
-    height: var(--max-product-card-width);
-  }
-  .PlacesInfo {
-    background: var(--vkui--color_background_content);
-    position: relative;
-  }
-  
-  .PlacesInfoPage {
-    max-height: 100%;
-    overflow: scroll;
-  }
-  
-  .PlacesInfoPage::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .PlacesInfo_content {
-    display: flex;
-    flex-direction: column;
-    padding: 16px 0px var(--fixed-layout-height) 16px;
-    gap: 4px;
-  }
-  
-  .PlacesInfo_content_title {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-  }
-  
-  .PlacesInfo_content_price {
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .PlacesInfo_content_description {
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;
-    margin: 8px 0 14px 0;
-    opacity: 0;
-    animation: fadeIn 0.4s ease-out;
-    animation-fill-mode: forwards;
-    animation-delay: 0.25s;
-  }
-  
-  .PlacesInfo_skeleton {
-    width: 100%;
-    aspect-ratio: 1/1;
-  }
-  
-  .PlacesInfo_gallery {
-    will-change: transform;
-  }
-  
-  @media (min-width: 660px) {
-    .PlacesInfo {
-      margin: auto;
-      padding: 20px;
-      border-radius: 0 0 12px 12px;
-      display: flex;
-      margin-bottom: 12px;
-      flex-direction: row;
-      gap: 24px;
-      justify-content: space-between;
-      border-left: 0.8px solid var(--vkui--color_field_border_alpha);
-    }
-    .PlacesInfo_gallery {
-      width: 70%;
-      aspect-ratio: 1/1;
-      max-width: 480px;
-      border-radius: 8px;
-    }
-    .PlacesInfo_content {
-      width: 300px;
-      flex: 1;
-      padding: 0;
-    }
-  }
+.Places_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Places_header_avatar {
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 100%;
+}
+
+.Places_header_avatar__unload {
+  opacity: 0;
+}
+
+.Places_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 40px 20px;
+  padding-top: 40px;
+  margin-bottom: 155px;
+}
+
+.Places_spinner {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.PlacesCard {
+  width: 100%;
+  max-width: var(--max-product-card-width);
+  cursor: pointer;
+  border: 1px solid var(--vkui--color_field_border_alpha);
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.PlacesCard_bottom {
+  padding: 10px 12px 12px;
+  letter-spacing: 0.2px;
+  display: flex;
+  flex: 1;
+  gap: 14px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.PlacesCard_info {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.PlacesCard_title {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--vkui-light-text-text-primary);
+}
+
+.PlacesCard_price {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--vkui--color_text_primary);
+}
+
+.PlacesCard_preview {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  background-color: var(--skeleton-background-color);
+}
+
+.PlacesCard_preview_picture {
+  max-width: 100%;
+  max-height: 100%;
+  width: var(--max-product-card-width);
+}
+
+.PlacesCard_preview_picture_photo {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  user-select: none;
+}
+
+.PlacesCard_preview_picture_photo__unload {
+  opacity: 0;
+  width: var(--max-product-card-width);
+  height: var(--max-product-card-width);
+}

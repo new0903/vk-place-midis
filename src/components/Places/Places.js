@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Div,
   Group,
   Header,
   Placeholder,
@@ -18,30 +19,7 @@ class Places extends React.Component {
     super(props)
 
     this.state={
-      Cards:[
-        {
-          name: "test1",
-          title: "test1",
-        }, {
-          name: "test2",
-          title: "test2",
-        }, {
-          name: "test3",
-          title: "test3",
-        }, {
-          name: "test4",
-          title: "test4",
-        }, {
-          name: "test5",
-          title: "test5",
-        }, {
-          name: "test6",
-          title: "test6",
-        }, {
-          name: "test7",
-          title: "test7",
-        },
-      ]
+      Cards:this.props.Cards
     }
   }
   
@@ -50,8 +28,8 @@ class Places extends React.Component {
 
   render() {
     return (
-      <Group className="Places">
-
+      <Div className="Places">
+{/* 
         <Header size="large">
           <div className="Places_header">
             <img
@@ -64,13 +42,14 @@ class Places extends React.Component {
             <span>Тестовая страница</span>
           </div>
           <Spacing size={8} />
-        </Header>
+        </Header> */}
 
         <div className="Places_grid">
           {this.state.Cards.map((item, index) => (
             <PlacesCard
               key={item.id}
               PlaceCard={item}
+              fetchedUser={this.props.fetchedUser}
               go={this.props.go}
               data-index={index.toString()}
             />
@@ -82,7 +61,7 @@ class Places extends React.Component {
           <Spinner size="large"></Spinner>
         </div> */}
 
-      </Group>
+      </Div>
     )
   }
 
