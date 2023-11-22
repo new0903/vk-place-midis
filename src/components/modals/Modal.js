@@ -35,7 +35,7 @@ class Modal extends React.Component {
                         </ModalPageHeader>
                     }
                 >
-                    <OnBoardingModal  onClose={this.CloseModal} userdata={this.props.fetchedUser} />
+                    <OnBoardingModal  onClose={this.CloseModal} saveUser={this.props.saveUser} userdata={this.props.fetchedUser} />
                 </ModalPage>
             </ModalRoot >
         )

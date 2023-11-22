@@ -14,6 +14,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Modal from './components/modals/Modal';
 import QuestPanel from './panels/QuestsPanel';
 import MapPanel from './panels/MapPanel';
+import { addTowns } from './api/Cities';
 
 const App = () => {
 	const { view: activeView } = useActiveVkuiLocation()
@@ -23,7 +24,29 @@ const App = () => {
 	const [accessToken, setAccessToken] = useState(null);
 	const [activeModal, setActiveModal] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
-
+	async function saveUser(townid){
+		console.log("марш в хранилище")
+		bridge.send('VKWebAppStorageSet', {
+		  key: fetchedUser.id.toString(),
+		  value: fetchedUser.first_name,
+		})
+		var formData = new FormData();
+		formData.append('first_name', fetchedUser.first_name)
+		formData.append('last_name', fetchedUser.last_name)
+		formData.append('photo_200', fetchedUser.photo_200)
+		formData.append('id', fetchedUser.id)
+		await axios.post('https://russcazak10.ru/web/index.php?r=api/adduser',
+		  formData,
+		  {
+			headers: {
+			  "Content-type": "multipart/form-data",
+			},
+		  }).then((res) => {
+			console.log(res.data)
+			setDataPlace(res.data)
+		  })
+		addTowns(townid,fetchedUser.id)
+	}
 	useEffect(() => {
 		async function fetchData() {
 			const user = await bridge.send('VKWebAppGetUserInfo', {});
@@ -42,7 +65,7 @@ const App = () => {
 			if (data.keys[0].value) {
 
 				console.log("заходил")
-				setActiveModal("OnBoardingModal")
+				setActiveModal(null)
 				// если заходит не в первый раз
 			} else {
 				console.log("не заходил")
@@ -50,26 +73,7 @@ const App = () => {
 				// если впервые зашёл будем приветстовать так же запомним его в базу данных
 				if (user) {
 					setActiveModal("OnBoardingModal")
-					console.log("марш в хранилище")
-					bridge.send('VKWebAppStorageSet', {
-						key: user.id.toString(),
-						value: user.first_name,
-					})
-					var formData = new FormData();
-					formData.append('first_name', user.first_name)
-					formData.append('last_name', user.last_name)
-					formData.append('photo_200', user.photo_200)
-					formData.append('id', user.id)
-					await axios.post('https://russcazak10.ru/web/index.php?r=api/adduser',
-						formData,
-						{
-							headers: {
-								"Content-type": "multipart/form-data",
-							},
-						}).then((res) => {
-							console.log(res.data)
-							setDataPlace(res.data)
-						})
+					
 				}
 			}
 			setUser(user);
@@ -82,7 +86,7 @@ const App = () => {
 	}, []);
 //quest
 	return (
-		<SplitLayout popout={popout} modal={<Modal activeModal={activeModal}  fetchedUser={fetchedUser} setActiveModal={setActiveModal}/>}>
+		<SplitLayout popout={popout} modal={<Modal activeModal={activeModal}  fetchedUser={fetchedUser} saveUser={saveUser} setActiveModal={setActiveModal}/>}>
 			<SplitCol>
 
 
