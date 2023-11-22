@@ -27,42 +27,28 @@ class Places extends React.Component {
 
 
   render() {
+
+    console.log(2)
+    if (this.state.Cards) {
+      
+    console.log(this.state.Cards)
+    } 
+    console.log(this.state.Cards)
     return (
-      <Div className="Places">
-{/* 
-        <Header size="large">
-          <div className="Places_header">
-            <img
-              className="Places_header_avatar Places_header_avatar__unload"
-              width={28}
-              height={28}
-              src={persik}
-              alt=""
-            />
-            <span>Тестовая страница</span>
-          </div>
-          <Spacing size={8} />
-        </Header> */}
+
 
         <div className="Places_grid">
-          {this.state.Cards.map((item, index) => (
+          {this.props.Cards.map((item, index) => (
             <PlacesCard
-              key={item.id}
+              key={index}
               PlaceCard={item}
-              fetchedUser={this.props.fetchedUser}
-              go={this.props.go}
-              data-index={index.toString()}
             />
           ))}
         </div>
 
-        {/* <Placeholder>По вашему запросу ничего не нашлось</Placeholder>
-        <div className="Places_spinner">
-          <Spinner size="large"></Spinner>
-        </div> */}
 
-      </Div>
     )
+    
   }
 
 }

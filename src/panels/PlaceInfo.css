@@ -1,0 +1,126 @@
+.PlaceInfo {
+    background: var(--vkui--color_background_content);
+    position: relative;
+  }
+  
+  .PlaceInfoPage {
+    max-height: 100%;
+    overflow: scroll;
+  }
+  
+  .PlaceInfoPage::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .PlaceInfo_content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0px var(--fixed-layout-height) 16px;
+    gap: 4px;
+  }
+  
+  .PlaceInfo_content_title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgb(228, 77, 77);
+  }
+  
+  .PlaceInfo_content_price {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .PlaceInfo_content_description {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 8px 0 14px 0;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 0.25s;
+  }
+  
+  .PlaceInfo_skeleton {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+  
+  .PlaceInfo_gallery {
+    will-change: transform;
+  }
+  
+  @media (min-width: 660px) {
+    .PlaceInfo {
+      margin: auto;
+      padding: 20px;
+      border-radius: 0 0 12px 12px;
+      display: flex;
+      margin-bottom: 12px;
+      flex-direction: row;
+      gap: 24px;
+      justify-content: space-between;
+      border-left: 0.8px solid var(--vkui--color_field_border_alpha);
+    }
+    .PlaceInfo_gallery {
+      width: 70%;
+      aspect-ratio: 1/1;
+      max-width: 480px;
+      border-radius: 8px;
+    }
+    .PlaceInfo_content {
+      width: 300px;
+      flex: 1;
+      padding: 0;
+    }
+  }
+  .PlacePhoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vw;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    background: var(--skeleton-background-color);
+    max-height: var(--product-photo-max-size);
+  }
+  
+  .PlacePhoto_picture {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .PlacePhoto_photo {
+    z-index: 2;
+    pointer-events: none;
+    opacity: 1;
+  }
+  
+  .PlacePhoto_photo__loaded {
+    opacity: 1;
+    animation: fadeIn 0.4s ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 0.25s;
+  }
+  
+  .PlacePhoto_photo__horizontal {
+    width: 100%;
+  }
+  
+  .PlacePhoto_photo__vertical {
+    height: 100%;
+  }
+  
+  .PlacePhoto_photo__square {
+    height: 100%;
+    width: 100%;
+  }
+  

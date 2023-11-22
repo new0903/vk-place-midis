@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Panel, PanelHeader, PanelHeaderBack } from '@vkontakte/vkui';
+import { Panel, PanelHeader, PanelHeaderBack, Group, Button } from '@vkontakte/vkui';
 
+import { CKEditor } from '@ckeditor/ckeditor5-react'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import persik from '../img/persik.png';
 import FormPlaces from "../components/Places/FormPlaces"
 import './Persik.css';
@@ -39,8 +41,13 @@ export default class AddPlace extends React.Component {
 				>
 					добавить любимое место
 				</PanelHeader>
-				<FormPlaces go={this.props.go} setPlace={this.props.setDataPlace} userData={this.props.fetchedUser} />
+				<Group>
+
+
+					<FormPlaces   userData={this.props.fetchedUser} />
+				</Group >
 			</Panel>
 		)
 	}
 }
+//setPlace={this.props.setDataPlace}//funcPlace={this.addPlace}

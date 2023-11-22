@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import {
     Div,
     Group,
@@ -13,135 +13,248 @@ import {
     Textarea,
     FormLayout,
     Button,
+    Select,
+    CustomSelectOption,
+    CustomSelect
 } from '@vkontakte/vkui'
 import { Icon24Camera, Icon24Document } from '@vkontakte/icons'
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+//import { CKEditor } from '@ckeditor/ckeditor5-react'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+
 import bridge from '@vkontakte/vk-bridge';
 import './Places.css'
 import axios from 'axios'
 
 
 class FormPlaces extends React.Component {
-    place={}
+
+    places=[]
+    categories = [
+        {
+            id: 0,
+            value: "Все"
+        },
+        {
+            id: 1,
+            value: "Парки"
+        },
+        {
+            id: 2,
+            value: "Клубы"
+        },
+        {
+            id: 3,
+            value: "Рестораны"
+        },
+        {
+            id: 4,
+            value: "Театры"
+        },
+        {
+            id: 5,
+            value: "Музеи"
+        },
+        {
+            id: 6,
+            value: "Парк развлечений"
+        },
+    ]
+
+
     constructor(props) {
         super(props)
         this.state = {
             adress: "",
-            name:"",
+            name: "",
             description: "",
-            //photo: null,
-      //      add:false
+            photo: null,
+            selectType: "Парки",
+            place:{}
         }
-        
-        
+        this.UpdatePlace = this.UpdatePlace.bind(this)
         this.AddPlace = this.AddPlace.bind(this)
+        // this.setPlace=this.setPlace.bind(this)
+        // if (this.props.place) {
+        //     this.setState({adress: this.props.place.adress})
+        //     this.setState({name: this.props.place.namePlace})
+        //     this.setState({description: this.props.place.description})
+        //     console.log(this.props.place)
+        //     console.log(this.state.adress)
+        //     console.log(this.state.name)
+        //     console.log(this.state.description)
+        // }
     }
 
 
-   
-    AddPlace() {
-        //https://dev.vk.com/ru/api/upload/album-photos#%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%B0
-        
+
+    async AddPlace() {
+
+        var formData = new FormData();
+        // var imagedata = document.querySelector('input[type="file"]').files;
 
 
-
-
-
-        // let form = new FormData();
-        // if (this.state.photo.lenght>0) {
-        //     form.append("file1",this.state.photo[0])
-            
-        // }
-        // if (this.state.photo.lenght>1) {
-        //     form.append("file2",this.state.photo[1])
-            
-        // }
-        // if (this.state.photo.lenght>2) {
-        //     form.append("file3",this.state.photo[2])
-            
-        // }
-        // if (this.state.photo.lenght>3) {
-        //     form.append("file4",this.state.photo[3])
-            
-        // }
-        // if (this.state.photo.lenght>4) {
-        //     form.append("file5",this.state.photo[4])
-            
-        // }
-
-        this.place = {
-            userData: {
-
-                id: this.props.userData.id,
-                photo_200: this.props.userData.photo_200,
-                first_name: this.props.userData.first_name,
-                last_name: this.props.userData.last_name
-
-            },
-            adress: this.state.adress,
-            namePlace:this.state.name,
-            dateCreate: new Date().getDate(),
-            description: this.state.description,
+        formData.append('namePlace', this.state.name)
+        formData.append('adress', this.state.adress)
+        formData.append('category', this.state.selectType)
+        formData.append('user_id', this.props.userData.id)
+        if (this.state.photo !== null) {
+            var ins = this.state.photo.length;
+            for (var x = 0; x < ins; x++) {
+                formData.append("files[]", this.state.photo[x]);
+            }
+            // formData.append('files[]', this.state.photo)
         }
-        console.log(this.place)
-       // this.setState({add:true})
-        this.props.setPlace(this.place)
+        if (this.state.description !== null) {
+            formData.append('description', this.state.description)
+        }
+        //    formData.append('description', this.state.description)
+
+        console.log(formData)
+        //получаем места в челябинске с моего сервера
+        axios.post('https://russcazak10.ru/web/index.php?r=api/addplace',//https://russcazak10.ru/web/index.php?r=api/addplaces
+            formData,
+            {
+                headers: {
+                    "Content-type": "multipart/form-data",
+                },
+            }
+        ).then((res) => {
+            console.log(res)
+
+            //setDataPlace(res.data)
+        })
     }
+    async UpdatePlace() {
+        var formData = new FormData();
+        // var imagedata = document.querySelector('input[type="file"]').files;
+
+        formData.append('id', this.props.place.id)
+        formData.append('namePlace', this.state.name)
+        formData.append('adress', this.state.adress)
+        formData.append('user_id', this.props.userData.id)
+        formData.append('category', this.state.selectType)
+        if (this.state.photo !== null) {
+            var ins = this.state.photo.length;
+            for (var x = 0; x < ins; x++) {
+                formData.append("files[]", this.state.photo[x]);
+            }
+            // formData.append('files[]', this.state.photo)
+        }
+        if (this.state.description !== null) {
+            formData.append('description', this.state.description)
+        }
+        //    formData.append('description', this.state.description)
+
+        console.log(formData)
+
+        axios.post(`https://russcazak10.ru/web/index.php?r=api/updateplaces`,
+            formData,
+            {
+                headers: {
+                    "Content-type": "multipart/form-data",
+                },
+            }).then((res) => {
+                console.log(res.data)
+                //setPlace(res.data.place)
+            }).catch((res) => console.log(res))
+    }
+
+
 
 
     render() {
+       
         return (
-
-
-            <Group>
-                <Button size="s" align='center' mode="secondary" onClick={()=>{this.props.go("home")}} data-to="home">
-                    Назад
-                </Button>
-
-                <FormLayout>
-                    <FormItem top="Любимые места" >
-                        <Input
-                            id="namePlace"
-                            type="text"
-                            align="left"
-                            placeholder='название любимого места'
-                            onChange={(e) => this.setState({ adress: e.target.value })}
-                        />
-                    </FormItem>
-                    <FormItem top="Адрес">
-                        <Input
+            <FormLayout>
+                <FormItem top="Адрес места" >
+                    <Input
+                        id="namePlace"
                         type="text"
                         align="left"
+                        placeholder='название любимого места'
+                        defaultValue={this.props.place ? this.props.place.adress : this.state.adress}
+                        onChange={(e) => this.setState({ adress: e.target.value })}
+                    />
+                </FormItem>
+                <FormItem top="Название">
+                    <Input
+                        type="text"
+                        align="left"
+                        defaultValue={ this.props.place ? this.props.place.namePlace : this.state.name}
                         placeholder="Парки, музеи, кинотеатры, клубы" onChange={(e) => this.setState({ name: e.target.value })} />
-                    </FormItem>
-                    <FormItem top="Любимые места расширенное поле">
-                        <CKEditor editor={ClassicEditor} onChange={(e,editor) => {
-                            console.log(editor.getData());
-                            this.setState({description:editor.getData()})
-                            }} />
-                    </FormItem>
-                    <FormItem top="Загрузите ваше фото">
-                        <File before={<Icon24Camera role="presentation" />} size="m" onChange={
-                            (e) => {
-                                if (e.target.files) {
-                                    this.setState({photo: e.target.files});
-                                }
-                            }
-                            } >
-                            Открыть галерею
-                        </File>
-                    </FormItem>
-                    <FormItem top="Загрузите ваше место">
-                        <Button size="s" align='center' mode="secondary" onClick={this.AddPlace} data-to="home">
-                            Добавить место
-                        </Button>
-                    </FormItem>
-                </FormLayout>
-                {/* <FormItem top="Загрузите документы">
-                    <File before={<Icon24Document role="presentation" />} size="l" mode="secondary" />
-                </FormItem> */}
-            </Group>
+                </FormItem>
+                <FormItem top="Описание места ">
+                    <Textarea placeholder="описание"
+                        defaultValue={this.props.place ? this.props.place.description : this.state.description}
+                        onChange={(e) => {
+                            const data = e.target.value;
+                            this.setState({ description: data })
+                            console.log(e.target.value);
+                        }}
+                    />
+                </FormItem>
+
+                <FormItem top="Категория">
+
+
+                    <CustomSelect
+                        value={this.state.selectType}
+                        onChange={(e) => {
+                            console.log(e.target.value);
+                            this.setState({ selectType: e.target.value })
+                            console.log(this.state.selectType)
+                        }}
+                        placeholder={this.state.selectType}
+
+                        options={this.categories}
+                        renderOption={({ option, ...restProps }) => (
+                            <CustomSelectOption   {...restProps} before={`${option.value}`} />
+                        )}
+
+                    />
+                </FormItem>
+                <FormItem top="Загрузите ваше фото">
+
+
+                    <File before={<Icon24Camera role="presentation" />} multiple size="m" a onChange={
+                        (e) => {
+                            let image_as_files = e.target.files;
+
+                            // let image_as_base64 = URL.createObjectURL(e.target.files)
+
+                            this.setState({
+                                photo: image_as_files,
+                            })
+                            console.log(this.state.photo)
+                            // if (e.target.files) {
+                            //     this.setState({ photo: e.target.files });
+                            // }
+                        }
+                    } >
+                        Открыть галерею
+                    </File>
+                </FormItem>
+
+
+                <FormItem top="Загрузите ваше место">
+                    <Button size="s" align='center' mode="secondary" onClick={() => {
+                        if (this.props.type == "UPDATE") {
+                            this.UpdatePlace()
+                        } else {
+                            this.AddPlace()
+                        }
+
+
+                    }} >
+                        Добавить место
+                    </Button>
+                </FormItem>
+            </FormLayout>
+
+
+
+
         )
     }
 
@@ -149,18 +262,18 @@ class FormPlaces extends React.Component {
 
 export default FormPlaces
 
-/*
+// renderOption={({ option, ...restProps }) => (
+//     <CustomSelectOption
+//         onChange={(e) => {
+//             console.log(option.id);
+//             this.setState({ selectType: option.value })
+//         }}
+//         onClick={(e) => {
+//             console.log(option.id);
+//             this.setState({ selectType: option.value })
+//         }}
+//         key={option.id}
+//         before={option.value}
+//     />
+// )}
 
-
-*/
-
- //перенести эту функцию в класс выше 
-    // посмотреть документацию передачи файлов
-    //id albom =299967825
-    // {
-    //     "response":{
-    //     "album_id":299967825
-    //     "upload_url":"https://pu.vk.com/c906728/ss2329/upload.php?act=do_add&mid=62107393&aid=299967825&gid=0&hash=066fdde55237184d738e9bc17ba305b6&rhash=8043a91bb1eb4aa974494c37cd194844&swfupload=1&api=1"
-    //     "user_id":62107393
-    //     }
-    //     }
